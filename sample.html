@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://keisatodesign.com/ww/weather.html -->
+<html lang="ja" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>sample</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="http://keisatodesign.com/ww/css/reset.css">
+<link rel="stylesheet" href="http://keisatodesign.com/ww/css/style.css">
+<script src="./js/jquery-1.9.1.min.js"></script>
+<script src="./js/mainfunction.js"></script>
+<link href="chrome-extension://lnkdbjbjpnpjeciipoaflmpcddinpjjp/mytube.css" rel="stylesheet" type="text/css">
+<script src="chrome-extension://lnkdbjbjpnpjeciipoaflmpcddinpjjp/mutationObserver.js"></script>
+<script src="chrome-extension://lnkdbjbjpnpjeciipoaflmpcddinpjjp/mytube.js"></script>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./css/translateelement.css">
+<script type="text/javascript" charset="UTF-8" src="./js/main_ja.js"></script>
+<script type="text/javascript" charset="UTF-8" src="./js/element_main.js"></script>
+</head>
+<body style="">
+
+<div id="output"></div>
+
+<script>
+	$(document).ready(function() {
+    	var url = "http://www.drk7.jp/weather/json/13.js?callback=?";
+    	$.getJSON(url);
+	});
+	function drk7jpweather() {}
+    drk7jpweather.callback = function(data) {
+    	var weekly = data.pref.area.東京地方.info;
+    	for (var i = 0; i < weekly.length; i++) {
+  			$("#output").append("<p>" + weekly[i].date + " " + weekly[i].weather + "</p>");
+    	}
+    };
+</script>
